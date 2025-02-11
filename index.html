@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kotak Misterius</title>
+    <title>Kotak Misterius Minimalis</title>
     <style>
         body {
             display: flex;
@@ -12,7 +12,7 @@
             height: 100vh;
             margin: 0;
             background-color: #1a1a1a;
-            font-family: 'Pacifico', cursive;
+            font-family: 'Poppins', sans-serif;
             overflow: hidden;
         }
 
@@ -45,6 +45,8 @@
             text-align: center;
             opacity: 0;
             animation: fadeIn 2s forwards;
+            font-weight: 400; /* Regular weight untuk kesan minimalis */
+            letter-spacing: 0.5px; /* Spasi huruf yang rapi */
         }
 
         @keyframes fadeIn {
@@ -63,6 +65,7 @@
             animation: fall 5s linear infinite;
             font-size: 2em;
             color: #ff0066;
+            font-family: 'Poppins', sans-serif;
         }
 
         @keyframes fall {
@@ -71,7 +74,7 @@
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="mystery-box" id="mysteryBox">
@@ -82,12 +85,12 @@
         const mysteryBox = document.getElementById('mysteryBox');
         const mysteryText = document.getElementById('mysteryText');
         const gombalList = [
-            "GENDOT GENDOT",
-            "DIET WOII",
-            "OLAHRAGA JUGA GENDOTT",
-            "JAGA POLA MAKAN",
-            "TIDOR YANG CUKOP JAN BEGADANG TEROS",
-            "Dunia ini terasa lebih indah karena kamu ada di dalamnya..."
+        "GENDOT GENDOT",
+        "DIET WOII",
+        "OLAHRAGA JUGA GENDOTT",
+        "JAGA POLA MAKAN",
+        "TIDOR YANG CUKOP JAN BEGADANG TEROS",
+        "Dunia ini terasa lebih indah karena kamu ada di dalamnya..."
         ];
 
         mysteryBox.addEventListener('click', () => {
