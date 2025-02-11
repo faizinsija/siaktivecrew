@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotak Misterius</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+            font-family: 'Pacifico', cursive;
+            overflow: hidden;
+        }
+
+        .mystery-box {
+            width: 200px;
+            height: 200px;
+            background-color: #ff0066;
+            border: 5px solid #ffccf2;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mystery-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 0, 102, 0.9);
+        }
+
+        .mystery-box:active {
+            transform: scale(0.9);
+        }
+
+        .mystery-text {
+            font-size: 1.5em;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .heart {
+            position: absolute;
+            top: -20%;
+            animation: fall 5s linear infinite;
+            font-size: 2em;
+            color: #ff0066;
+        }
+
+        @keyframes fall {
+            to {
+                top: 100%;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mystery-box" id="mysteryBox">
+        <div class="mystery-text" id="mysteryText">Klik Aku!</div>
+    </div>
+
+    <script>
+        const mysteryBox = document.getElementById('mysteryBox');
+        const mysteryText = document.getElementById('mysteryText');
+        const gombalList = [
+            "GENDOT GENDOT",
+            "DIET WOII",
+            "OLAHRAGA JUGA GENDOTT",
+            "JAGA POLA MAKAN",
+            "TIDOR YANG CUKOP JAN BEGADANG TEROS",
+            "Dunia ini terasa lebih indah karena kamu ada di dalamnya..."
+        ];
+
+        mysteryBox.addEventListener('click', () => {
+            // Acak teks gombal dari list
+            const randomIndex = Math.floor(Math.random() * gombalList.length);
+            mysteryText.textContent = gombalList[randomIndex];
+            mysteryText.style.opacity = 0;
+            mysteryText.classList.remove('hidden');
+
+            // Animasi fadeIn
+            setTimeout(() => {
+                mysteryText.style.opacity = 1;
+            }, 100);
+
+            // Tambahkan hujan hati
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
